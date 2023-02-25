@@ -17,10 +17,14 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "run-p tailwind:start react:start",
+    "build": "run-s tailwind:build react:build",
+    "react:start": "react-scripts start",
+    "react:build": "react-scripts build",
+    "react:test": "react-scripts test",
+    "react:eject": "react-scripts eject",
+    "tailwind:start": "npx tailwindcss -i ./src/index.css -o ./src/index.min.css --watch",
+    "tailwind:build": "npx tailwindcss -i ./src/index.css -o ./src/index.min.css"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +46,7 @@
   },
   "devDependencies": {
     "flowbite": "^1.6.3",
+    "npm-run-all": "^4.1.5",
     "tailwindcss": "^3.2.7"
   }
 }
